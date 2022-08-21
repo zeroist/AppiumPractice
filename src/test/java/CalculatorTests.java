@@ -2,6 +2,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -20,6 +21,15 @@ public class CalculatorTests {
 
         URL url = new URL("http://localhost:4723/wd/hub");
         driver = new AndroidDriver<MobileElement>(url, caps);
+        //System.out.println(driver.getTitle());
+        System.out.println(driver.getDeviceTime());
+        Assertions.assertEquals("android",driver.getPlatformName());
+
+
+
+
+        driver.closeApp();
+
 
 
 
