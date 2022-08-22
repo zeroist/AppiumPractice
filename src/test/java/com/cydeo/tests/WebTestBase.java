@@ -1,6 +1,7 @@
 package com.cydeo.tests;
 
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -28,10 +29,11 @@ public abstract class WebTestBase {
         URL url = new URL("http://localhost:4723/wd/hub");
         driver = new RemoteWebDriver(url, desiredCapabilities);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-
     }
 
-
+    @AfterEach
+    public void tearDown() {
+        driver.quit();
+    }
 
 }
